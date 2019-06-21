@@ -11,8 +11,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist', '404.html'))
-})
+    res.send('route not found');
+});
 
 const server = app.listen(5000, () => {
   console.log('server started at port 5000');
