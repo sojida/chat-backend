@@ -1,10 +1,11 @@
 const functions = require('firebase-functions');
-const path = require('path');
 const express = require('express');
 const socket = require('socket.io');
-
+const cors = require('cors')
 
 const app = express();
+
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send('Welcome to chat back')
