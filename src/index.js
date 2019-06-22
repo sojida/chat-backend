@@ -14,8 +14,10 @@ app.use('*', (req, res) => {
     res.send('route not found');
 });
 
-const server = app.listen(5000, () => {
-  console.log('server started at port 5000');
+const port = process.env.PORT || 5000
+
+const server = app.listen(port, () => {
+  console.log(`server started at port ${port}`);
 });
 
 // socket setup
