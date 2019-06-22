@@ -1,7 +1,6 @@
-const functions = require('firebase-functions');
-const express = require('express');
-const socket = require('socket.io');
-const cors = require('cors')
+import express from 'express';
+import socket from 'socket.io';
+import cors from 'cors';
 
 const app = express();
 
@@ -9,7 +8,7 @@ app.use(cors())
 
 app.get('/', (req, res) => {
     res.send('Welcome to chat back')
-})
+});
 
 app.use('*', (req, res) => {
     res.send('route not found');
@@ -32,4 +31,3 @@ io.on('connection', (socket) => {
   });
 });
 
-exports.app = functions.https.onRequest(app);
