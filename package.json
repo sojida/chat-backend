@@ -1,0 +1,36 @@
+{
+  "name": "chat-backend",
+  "version": "1.0.0",
+  "description": "Firebase App - https://chat-back-10336.firebaseapp.com/",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "start:dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src -d dist",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sojida/chat-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sojida/chat-backend/issues"
+  },
+  "homepage": "https://github.com/sojida/chat-backend#readme"
+}
