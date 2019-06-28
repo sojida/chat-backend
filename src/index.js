@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
   socket.on('join', (res) => {
     console.log(`someone joined ${res.pathName}`)
     socket.join(res.pathName)
-    io.in(res.pathName).emit('join', res);
+    socket.to(res.pathName).emit('join', res);
 
     socket.on('chat', (data) => {
       io.in(res.pathName).emit('chat', data);
