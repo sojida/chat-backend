@@ -1,6 +1,7 @@
 import express from 'express';
 import socket from 'socket.io';
 import cors from 'cors';
+import sendEmail from './helpers/email';
 
 const app = express();
 
@@ -29,6 +30,7 @@ io.on('connection', (socket) => {
 
   socket.on('join', (res) => {
     console.log(`someone joined ${res.pathName}`)
+    sendEmail(res.email, res.username, res.pathName);
     socket.join(res.pathName)
     socket.to(res.pathName).emit('join', res);
 
@@ -40,7 +42,4 @@ io.on('connection', (socket) => {
       socket.to(res.pathName).emit('typing', data);
     });
   });
-
-
 });
-
