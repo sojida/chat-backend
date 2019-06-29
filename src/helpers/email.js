@@ -5,8 +5,6 @@ dotenv.config();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-console.log('api key', process.env.SENDGRID_API_KEY);
-
 const sendEmail = async(to, username, chatID) => {
   try {
     const msg = {
