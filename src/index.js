@@ -30,8 +30,11 @@ io.on('connection', (socket) => {
 
   socket.on('join', (res) => {
     console.log(`someone joined ${res.pathName}`)
-    sendEmail(res.email, res.username, res.pathName);
     socket.join(res.pathName)
+    const peopleInARoom = socket.adapter.rooms[res.pathName].length;
+    if (peopleInARoom === 1) {
+      sendEmail(res.email, res.username, res.pathName);
+    }
     socket.to(res.pathName).emit('join', res);
 
     socket.on('chat', (data) => {
