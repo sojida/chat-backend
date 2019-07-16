@@ -39,9 +39,7 @@ io.on('connection', (socket) => {
 
     socket.on('chat', (data) => {
       io.in(res.pathName).emit('chat', data);
-      socket.on('sound', notification => {
-        socket.to(res.pathName).emit('sound', notification);
-      });
+      socket.to(res.pathName).emit('sound');
     });
     
 
